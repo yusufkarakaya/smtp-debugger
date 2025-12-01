@@ -1,4 +1,4 @@
-"# SMTP & API Email Debugging Copilot
+# SMTP & API Email Debugging Copilot
 
 A lightweight developer tool for debugging SMTP servers and HTTP/API email endpoints (such as Supabase Functions, SendGrid, Postmark, or custom email APIs).  
 Built with Next.js, TypeScript, and Tailwind CSS.  
@@ -155,4 +155,3 @@ All data is used only for the live test and discarded afterward.
 ## License
 
 MIT License. Free for personal and commercial use.
-"
