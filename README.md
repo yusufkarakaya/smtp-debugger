@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+"# SMTP & API Email Debugging Copilot
+
+A lightweight developer tool for debugging SMTP servers and HTTP/API email endpoints (such as Supabase Functions, SendGrid, Postmark, or custom email APIs).  
+Built with Next.js, TypeScript, and Tailwind CSS.  
+No accounts, no database, no AI — focused purely on developer troubleshooting.
+
+---
+
+## Features
+
+### SMTP Debugger
+
+Send a real test email using your SMTP provider. Supports:
+
+- SMTP host, port, username, password
+- SSL/TLS toggle
+- From and To fields
+- Backend test via `/api/test-smtp` using Nodemailer
+- Raw SMTP errors for transparent debugging
+- Clear explanations for common SMTP issues (535, ENOTFOUND, ETIMEDOUT, self-signed certificate, etc.)
+- Auto-generated Node.js / Nodemailer code snippet
+
+Compatible with:  
+SMTP2GO, Gmail SMTP, Outlook/Office365, Mailgun, SendGrid (SMTP mode), and all major SMTP services.
+
+---
+
+### API Endpoint Debugger
+
+Test any HTTP endpoint that performs email operations.
+
+- URL input
+- HTTP method (GET/POST)
+- Optional API key sent as `Authorization: Bearer <key>`
+- Raw JSON body support
+- Backend test via `/api/test-api`
+- Status code mapping with clear explanations
+- Raw response or raw error output
+
+Works with:  
+Supabase Edge Functions, SendGrid API, Postmark API, Mailgun API, and custom backend email routes.
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Next.js API Routes (Node.js backend)
+- Nodemailer
+- Custom neon color palette (amber_gold, blaze_orange, neon_pink, blue_violet, azure_blue)
+
+---
+
+## Project Structure
+
+```
+smtp-debugger/
+│
+├── app/
+│   ├── api/
+│   │   ├── test-smtp/
+│   │   │   └── route.ts       # SMTP backend tester
+│   │   └── test-api/
+│   │       └── route.ts       # API backend tester
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx               # UI: SMTP tab + API tab
+│
+├── tailwind.config.ts         # Includes custom color palette
+├── postcss.config.mjs
+├── package.json
+└── README.md
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/smtp-debugger
+cd smtp-debugger
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in browser:  
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## SMTP Usage Notes
 
-## Learn More
+To successfully send a test email, your provider may require:
 
-To learn more about Next.js, take a look at the following resources:
+- Correct SMTP host and port
+- SMTP username and password
+- SSL/TLS enabled depending on provider
+- Verified sender address
+- App Passwords for Gmail/Outlook if using personal accounts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+A real message is delivered to the recipient you specify.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## API Usage Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Provide:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Full URL of the endpoint
+- HTTP method
+- Optional API key
+- Raw JSON body (for POST requests)
+
+The result panel displays:
+
+- Success or failure
+- HTTP status code and explanation
+- Raw server response or error details
+
+Useful for debugging:
+
+- Supabase HTTP functions
+- Third-party email APIs
+- Internal email-triggering services
+
+---
+
+## Security
+
+This tool does **not** store:
+
+- SMTP credentials
+- API keys
+- Email addresses
+- JSON request bodies
+
+All data is used only for the live test and discarded afterward.
+
+---
+
+## License
+
+MIT License. Free for personal and commercial use.
+"
