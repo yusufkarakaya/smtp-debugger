@@ -4,6 +4,12 @@ A lightweight developer tool for debugging SMTP servers and HTTP/API email endpo
 Built with Next.js, TypeScript, and Tailwind CSS.  
 No accounts, no database, no AI — focused purely on developer troubleshooting.
 
+<p align="center">
+  <a href="https://serene-macaron-6f50bc.netlify.app" target="_blank" style="font-size:18px; font-weight:600;">
+    🚀 Live Demo
+  </a>
+</p>
+
 ---
 
 ## Features
