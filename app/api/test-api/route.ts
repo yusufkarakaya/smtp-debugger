@@ -1,4 +1,3 @@
-// app/api/test-api/route.ts
 import { NextResponse } from 'next/server'
 
 type ApiTestRequestBody = {

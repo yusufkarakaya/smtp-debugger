@@ -2,7 +2,7 @@
 import nodemailer from 'nodemailer'
 import { NextResponse } from 'next/server'
 
-export const runtime = 'nodejs' // ensure Node runtime for nodemailer
+export const runtime = 'nodejs'
 
 type SmtpRequestBody = {
   host: string
@@ -126,7 +126,7 @@ export async function POST(req: Request) {
         error: errorText,
         explanation,
       },
-      { status: 200 } // keep 200 so frontend always can parse
+      { status: 200 }
     )
   }
 }
